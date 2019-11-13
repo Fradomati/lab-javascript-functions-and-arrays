@@ -48,22 +48,15 @@ function sumArray(arr){
 const numbersAvg = [2, 6, 9, 10, 7, 4, 1, 9];
 
 function averageNumbers(arr){
-  let sum = 0
-  let average = sum / arr.length
+
   
   if(arr.length === 0){
     return null  
-    } else if(arr.length === 1){
-      sum += arr[0]
-      return sum
-    } else {
-      for(let i = 0; i < arr.length; i++){
-      sum += arr[i]        
+    } else { 
+      return sumArray(arr) / arr.length
     } 
-    
   }
-  return average
-}
+  
 
 // Level 2: Array of strings
 const wordsArr = [
@@ -85,6 +78,23 @@ function averageWordLength(arr){
   } else if(arr.length === 1){
     return arr[0].length
   } else if (arr.length > 1){
+    let sum = 0;
+    for(let i = 0; i < arr.length; i++){
+      sum += arr[i].length;
+    }
+
+    return sum / arr.length
+  }
+
+}
+
+/*
+function averageWordLength(arr){
+  if(arr.length === 0){
+    return null;
+  } else if(arr.length === 1){
+    return arr[0].length
+  } else if (arr.length > 1){
     let sum = 0
     let average = sum / arr.length
     for(let i = 0; i < length; i++){
@@ -95,7 +105,7 @@ function averageWordLength(arr){
   }
 
 }
-
+*/
 // Iteration #5: Unique arrays
 
 
@@ -113,6 +123,8 @@ const wordsUnique = [
   'bring'
 ];
 
+/* Solución alternativa... 
+
 function uniquifyArray(arr){
   let newArray = []
   
@@ -124,6 +136,20 @@ function uniquifyArray(arr){
     }
   }
 return newArray
+} 
+
+*/
+
+
+function uniquifyArray(arr){
+  let newArray = []
+
+  for(let i = 0; i < arr.length; i++){
+    if(newArray.indexOf(arr[i]) === -1){
+      newArray.push(arr[i])
+    }
+  }
+  return newArray
 }
 
 // Iteration #6: Find elements
@@ -142,18 +168,7 @@ const wordsFind = [
 ];
 
 function doesWordExist(arr, word){
- for(let i = 0; i < arr.length; i++){
-  
-  if(arr.length == 0){
-    return false
-  } else if(word.length == 0){
-    return true
-  } else if(arr[i] == word){
-    return true
-  } else if(arr[i] != word){
-    return false
-  }
- }
+ return arr.includes(word);
 }
 
 // Iteration #7: Count repetition
@@ -170,6 +185,17 @@ const wordsCount = [
   'disobedience',
   'matter'
 ];
+
+function howManyTimes(arr, word){
+  let found = word
+  let count = 0
+  for(let i = 0; i < arr.length; i++){
+    if(arr[i] === word){
+      count++
+    } 
+  }
+  return count
+}
 
 // Iteration #8: Bonus
 
